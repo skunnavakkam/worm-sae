@@ -4,7 +4,7 @@ import torch.nn as nn
 
 
 class cElegansFwdSAE(nn.Module):
-    def __init__(self, hidden_dim: int = 189):
+    def __init__(self, hidden_dim: int = 378):
         super().__init__()
         self.encode = nn.Linear(189, hidden_dim)
 
@@ -14,7 +14,7 @@ class cElegansFwdSAE(nn.Module):
 
 
 class cElegansBwdSAE(nn.Module):
-    def __init__(self, hidden_dim: int = 189):
+    def __init__(self, hidden_dim: int = 378):
         super().__init__()
         self.decode = nn.Linear(hidden_dim, 189)
 

@@ -71,8 +71,8 @@ if __name__ == "__main__":
     encode = cElegansFwdSAE()
     decode = cElegansBwdSAE()
     batch_size = 1024
-    epochs = 100
-    sparsity_weight = 5
+    epochs = 30
+    sparsity_weight = 10
 
     # Create DataLoader for batch processing
     dataset = TensorDataset(data)
