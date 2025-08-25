@@ -8,6 +8,7 @@ import glob
 import pandas as pd
 from functools import reduce
 from models import cElegansFwdSAE, cElegansBwdSAE, cElegansSAE
+import os
 
 
 def load_data() -> Float[torch.Tensor, "worms neurons timesteps"]:
@@ -109,3 +110,8 @@ if __name__ == "__main__":
         print(
             f"Epoch {epoch} reconstruction: {loss1.item() / batch_size}, sparsity: {loss2.item() / batch_size}, non_zero: {non_zero.item() / batch_size}"
         )
+
+    if not os.path.exists("models"):
+        os.makedirs("models")
+    torch.save(encode.state_dict(), "models/encode.pt")
+    torch.save(decode.state_dict(), "models/decode.pt")
